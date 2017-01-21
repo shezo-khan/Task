@@ -411,12 +411,39 @@ main {
 
 #cd-gallery-items {
 	li {
+		position:relative;
 		margin-bottom: 1.5em;
+		position: relative;
 
 		img {
 			width: 100%;
 			display: block;
 			@include border-radius;
+		}
+		&:hover{
+			.buttons{
+				opacity: 1;
+			}
+		}
+		.buttons{
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			bottom: 5px;
+			opacity: 0;
+			transition: 0.5s all;
+			button{
+				font-family: $primary-font;
+				background-color: transparent;
+				padding:15px;
+				border: 2px solid #fff;
+				color:#fff;
+				transition: 0.5s all;
+				&:hover{
+					background-color: white;
+					color:black;
+				}
+			}
 		}
 	}
 
