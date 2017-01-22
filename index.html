@@ -8,20 +8,21 @@
 
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Gem style -->
-	<link rel="stylesheet" href="dist/sweetalert.css"> <!-- Sweetalert -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
-  	
+  	<script src="js/lscache.min.js"></script> <!-- Modernizr -->
+	<link rel="stylesheet" href="dist/sweetalert.css">
+	<title>Side Cart</title>
 </head>
 <body>
 	<header>
 		<div id="logo">FARO</div>
 
-		<div id="cd-hamburger-menu"><a class="cd-img-replace" href="#0">Menu</a></div>
+		<div id="cd-hamburger-menu"><a class="cd-img-replace" href="#">Menu</a></div>
 		<div id="cd-cart-trigger">
-			<a class="cd-img-replace" href="#0">Cart</a>
+			<a class="cd-img-replace " href="#">Cart</a>
 			<ul class="count-button">
-				<li>0</li>
-				<li>1</li>
+				<li  class="js_total_no_products">0</li>
+                <li class="js_total_no_products">0</li>
 			</ul>
 		</div>
 	</header>
@@ -38,43 +39,76 @@
 
 	<main>
 		<ul id="cd-gallery-items" class="cd-container">
-			<li>
+			<li data-name='iphone cover' data-id='1' data-price='40'  >
 				<img src="img/thumb.jpg" alt="Preview image">
 				<div class="buttons">
-					<button>Add to cart</button>
+					<button class="js_add_to_cart">Add to cart</button>
+					<button>Read more</button>
 				</div>
 			</li>
 
-			<li>
+			<li  data-name='samsung cover' data-id='2'  data-price='80'  >
 				<img src="img/thumb.jpg" alt="Preview image">
+                <div class="buttons">
+					<button class="js_add_to_cart">Add to cart</button>
+					<button>Read more</button>
+				</div>
 			</li>
 
-			<li>
+			<li  data-name='iphone 7 cover' data-id='3'  data-price='125'  >
 				<img src="img/thumb.jpg" alt="Preview image">
+                <div class="buttons">
+					<button class="js_add_to_cart">Add to cart</button>
+					<button>Read more</button>
+				</div>
 			</li>
 
-			<li>
+			<li  data-name='iphone 6s cover' data-id='4'  data-price='32'  >
 				<img src="img/thumb.jpg" alt="Preview image">
+                <div class="buttons">
+					<button class="js_add_to_cart">Add to cart</button>
+					<button>Read more</button>
+				</div>
 			</li>
 
-			<li>
+			<li  data-name='ipad air cover' data-id='5'  data-price='329' >
 				<img src="img/thumb.jpg" alt="Preview image">
+                <div class="buttons">
+					<button class="js_add_to_cart">Add to cart</button>
+					<button>Read more</button>
+				</div>
 			</li>
 
-			<li>
+			<li  data-name='iphone 7' data-id='6'  data-price='612' >
 				<img src="img/thumb.jpg" alt="Preview image">
+                <div class="buttons">
+					<button class="js_add_to_cart">Add to cart</button>
+					<button>Read more</button>
+				</div>
 			</li>
 
-			<li>
+			<li  data-name='andriod software cd' data-id='7'   data-price='140'>
 				<img src="img/thumb.jpg" alt="Preview image">
+                <div class="buttons">
+					<button class="js_add_to_cart">Add to cart</button>
+					<button>Read more</button>
+				</div>
 			</li>
 
-			<li>
+			<li  data-name='apple logo' data-id='8'   data-price='80'>
 				<img src="img/thumb.jpg" alt="Preview image">
+                <div class="buttons">
+					<button class="js_add_to_cart">Add to cart</button>
+					<button>Read more</button>
+				</div>
 			</li>
 
-			<li>
+			<li  data-name='car speaker' data-id='9'  data-price='20' >
 				<img src="img/thumb.jpg" alt="Preview image">
+                <div class="buttons">
+					<button class="js_add_to_cart">Add to cart</button>
+					<button>Read more</button>
+				</div>
 			</li>
 		</ul> <!-- cd-gallery-items -->
 	</main>
@@ -84,36 +118,91 @@
 	<div id="cd-cart">
 		<h2>Cart</h2>
 		<ul class="cd-cart-items">
-			<li>
-				<span class="cd-qty">1x</span> Product Name
-				<div class="cd-price">$9.99</div>
-				<a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
-			</li>
-
-			<li>
-				<span class="cd-qty">2x</span> Product Name
-				<div class="cd-price">$19.98</div>
-				<a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
-			</li>
-
-			<li>
-				<span class="cd-qty">1x</span> Product Name
-				<div class="cd-price">$9.99</div>
-				<a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
-			</li>
+			
 		</ul> <!-- cd-cart-items -->
 
 		<div class="cd-cart-total">
-			<p>Total <span>$39.96</span></p>
+			<p>Total <span>$</span><span class="js_total_cart_amount">0</span></p>
 		</div> <!-- cd-cart-total -->
 
-		<a href="#0" class="checkout-btn">Checkout</a>
+		<a href="#" class="checkout-btn">Checkout</a>
 		
 		<p class="cd-go-to-cart"><a href="#0">Go to cart page</a></p>
 	</div> <!-- cd-cart -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/main.js"></script> <!-- Gem jQuery -->
 <script src="dist/sweetalert.min.js"></script>
-<script>swal("Good job!", "You clicked the button!", "success");</script>
+<script type="text/javascript">
+
+var a = '1x'; var b = '$123.3';
+b = b.replace(/[$,]+/g,"");
+var c = parseFloat(b) 
+
+console.log( parseInt( a ) + '---' + c);
+lscache.flush();
+
+$(document).on("click", '.js_add_to_cart', function()
+{
+	cart_items_already_added = $('.cd-cart-items').html();
+	product_name  = $(this).parents('li').attr('data-name');
+	product_price = $(this).parents('li').attr('data-price');
+	product_id    = $(this).parents('li').attr('data-id');
+	console.log( product_id + ':product_id' );
+	product_id_counter = lscache.get( product_id );
+	console.log( product_id_counter + ':product_id_counter' );
+	if( product_id_counter == null )
+	{
+		product_id_counter = 0;	
+		product_id_counter = product_id_counter + 1;
+		new_item = '<li data-id="'+ product_id +'"><span class="cd-qty">1x</span> '+ product_name +'<div class="cd-price">$'+ product_price +'</div><a href="#" class="js_item_remove cd-item-remove cd-img-replace">Remove</a></li>';
+		$('.cd-cart-items').html( new_item + cart_items_already_added );
+		lscache.set( product_id, product_id_counter );
+	}
+	else
+	{
+		product_id_counter = product_id_counter + 1;
+		lscache.set( product_id, product_id_counter );
+		$('.cd-cart-items').html( cart_items_already_added );
+		$('.cd-cart-items').find("li  [data-id=' " + product_id + "']").find('span.cd-qty').html( product_id_counter + 'x' );
+	}
+	
+	reTotal();
+	swal(product_name, "Added to Cart", "success");
+	return;
+	
+	
+});
+
+$(document).on("click", '.js_item_remove', function()
+{
+	product_id = $(this).parents('li').attr('data-id');
+	console.log( product_id );
+	$('.cd-cart-items').find("li[data-id='"+ product_id +"']").remove();
+	lscache.set( product_id, null );
+	reTotal();
+});
+
+function reTotal()
+{
+	total_price = 0;
+	$('.cd-cart-items').find("li").each(function(index, element) 
+	{
+    	 count_product = $(this).find('span.cd-qty').html();
+		 count_product = parseInt( count_product);
+		 
+		 price = $(this).find('.cd-price').html();
+		 price = price.replace(/[$,]+/g,"");
+		 price = parseFloat( price ); 
+
+		 price_of_product = price * count_product;
+		 total_price = total_price + price_of_product;
+		 
+    });
+	$('.js_total_cart_amount').html( total_price );
+	$('.js_total_no_products').html( $('.cd-cart-items li').length  );
+}
+
+
+</script>
 </body>
 </html>
