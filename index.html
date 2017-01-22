@@ -154,7 +154,7 @@ $(document).on("click", '.js_add_to_cart', function()
 	{
 		product_id_counter = 0;	
 		product_id_counter = product_id_counter + 1;
-		new_item = '<li data-id="'+ product_id +'"><span class="cd-qty">1x</span> '+ product_name +'<div class="cd-price">$'+ product_price +'</div><a href="#" class="js_item_remove cd-item-remove cd-img-replace">Remove</a></li>';
+		new_item = '<li data-id="'+ product_id +'"><span class="cd-qty">1x</span> '+ product_name +'<div class="cd-price">$'+ product_price +'</div><div class="quantity"><label for="cd-product-2">Qty</label><span class="select"><select id="cd-product-2" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div><a href="#" class="js_item_remove cd-item-remove cd-img-replace">Remove</a></li>';
 		$('.cd-cart-items').html( new_item + cart_items_already_added );
 		lscache.set( product_id, product_id_counter );
 	}

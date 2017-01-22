@@ -9,6 +9,7 @@ jQuery(document).ready(function($){
 		$shadow_layer = $('#cd-shadow-layer');
 		$carbutton = $('.buttons__Addtocart');
 
+
 	//Cart button Click
 	$carbutton.on('click', function(event){
 		event.preventDefault();
