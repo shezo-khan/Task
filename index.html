@@ -134,11 +134,11 @@
 <script src="dist/sweetalert.min.js"></script>
 <script type="text/javascript">
 
-var a = '1x'; var b = '$123.3';
-b = b.replace(/[$,]+/g,"");
-var c = parseFloat(b) 
+// var a = '1x'; var b = '$123.3';
+// b = b.replace(/[$,]+/g,"");
+// var c = parseFloat(b) 
 
-console.log( parseInt( a ) + '---' + c);
+// console.log( parseInt( a ) + '---' + c);
 lscache.flush();
 
 $(document).on("click", '.js_add_to_cart', function()
@@ -176,10 +176,35 @@ $(document).on("click", '.js_add_to_cart', function()
 $(document).on("click", '.js_item_remove', function()
 {
 	product_id = $(this).parents('li').attr('data-id');
-	console.log( product_id );
-	$('.cd-cart-items').find("li[data-id='"+ product_id +"']").remove();
-	lscache.set( product_id, null );
-	reTotal();
+	swal({
+	title: "Are you sure?",
+	text: "The product will be deleted from cart",
+	type: "warning",
+	showCancelButton: true,
+	confirmButtonColor: "#DD6B55",
+	confirmButtonText: "Yes, delete it!",
+	cancelButtonText: "No",
+	closeOnConfirm: false,
+	closeOnCancel: false
+	},
+	function(isConfirm){
+	if (isConfirm) {
+		console.log( product_id );
+		$('.cd-cart-items').find("li[data-id='"+ product_id +"']").remove();
+		lscache.set( product_id, null );
+		reTotal();
+		swal("Deleted!", "Product is deleted from Cart", "success");
+	} else {
+		swal("Cancelled", "", "error");
+		return;
+	}
+	});
+
+	// product_id = $(this).parents('li').attr('data-id');
+	// console.log( product_id );
+	// $('.cd-cart-items').find("li[data-id='"+ product_id +"']").remove();
+	// lscache.set( product_id, null );
+	// reTotal();
 });
 
 function reTotal()
