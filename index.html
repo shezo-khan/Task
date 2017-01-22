@@ -8,9 +8,9 @@
 
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Gem style -->
+	<link rel="stylesheet" href="dist/sweetalert.css"> <!-- Sweetalert -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
   	
-	<title>Side Cart</title>
 </head>
 <body>
 	<header>
@@ -42,7 +42,6 @@
 				<img src="img/thumb.jpg" alt="Preview image">
 				<div class="buttons">
 					<button>Add to cart</button>
-					<button>Read more</button>
 				</div>
 			</li>
 
@@ -114,5 +113,7 @@
 	</div> <!-- cd-cart -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/main.js"></script> <!-- Gem jQuery -->
+<script src="dist/sweetalert.min.js"></script>
+<script>swal("Good job!", "You clicked the button!", "success");</script>
 </body>
 </html>
