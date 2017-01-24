@@ -1,0 +1,112 @@
+.cart-nav {
+    @extend .nav-adjustments;
+	right: -100%;
+	background: #FFF;
+
+	@include transition(right .3s);
+
+	&.speed-in {
+		right: 0;
+	}
+
+	> * {
+		padding: 0 1em;
+	}
+
+	&__title {
+		@include font-size(14px);
+		font-weight: bold;
+		text-transform: uppercase;
+		margin: 1em 0;
+	}
+
+	&__list {
+		padding: 0;
+	}
+    &__item {
+        position: relative;
+        padding: 1em;
+        border-top: 1px solid $border;
+
+        &:last-child {
+            border-bottom: 1px solid $border;
+        }
+    }
+
+	.cart-nav__item--quantity{
+		color: $light-text;
+	}
+
+	&__price {
+		margin-top: .4em;
+        &--text-color{
+            color: $light-text;
+        }
+	}
+
+	&__remove {
+		position: absolute;
+		right: 1em;
+		@include center(y); // see mixin inside partials > _mixins.scss
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		background: url('../img/cd-remove-item.svg') no-repeat center center;
+
+		.no-touch &:hover {
+			background-color: $border;
+		}
+	}
+
+	&__total {
+		padding-top: 1em;
+		padding-bottom: 1em;
+
+		span {
+			float: right;
+		}
+
+		&::after { /* clearfix */
+			content: '';
+			display: table;
+			clear: both;
+		}
+	}
+
+	&__checkout {
+		display: block;
+		width: 100%;
+		height: 60px;
+		line-height: 60px;
+		background: $green;
+		color: #FFF;
+		text-align: center;
+
+		.no-touch &:hover {
+			background: lighten($green, 10%);
+		}
+	}
+
+	&__goto-cart {
+		text-align: center;
+		margin: 1em 0;
+
+		a {
+			text-decoration: underline;
+		}
+	}
+
+	@include MQ(L) {
+		> * {
+			padding: 0 2em;
+		}
+
+		.cart-nav__item {
+			padding: 1em 2em;
+		}
+
+		.cart-nav__remove {
+			right: 2em;
+		}
+	}
+}

@@ -16,34 +16,34 @@
 <body>
 	<header>
 		<div id="logo">FARO</div>
-
-		<div id="cd-hamburger-menu"><a class="cd-img-replace" href="#">Menu</a></div>
-		<div id="cd-cart-trigger">
-			<a class="cd-img-replace " href="#">Cart</a>
-			<ul class="count-button">
-				<li  class="js_total_no_products">0</li>
-                <li class="js_total_no_products">0</li>
+		<div class="main-navigation">
+			<div class="main-navigation__hamburger" id="cd-hamburger-menu"><a class="cd-img-replace main-navigation__ham-image" href="#">Menu</a></div>
+			<nav class="main-navigation__menu" id="main-nav">
+				<ul class="main-navigation__list">
+					<li class="main-navigation__list-item"><a class="main-navigation__link" href="#0">Home</a></li>
+					<li class="main-navigation__list-item"><a class="main-navigation__link" href="#0">About</a></li>
+					<li class="main-navigation__list-item"><a class="main-navigation__link main-navigation__link--current" href="#0">Services</a></li>
+					<li class="main-navigation__list-item"><a class="main-navigation__link" href="#0">Gallery</a></li>
+					<li class="main-navigation__list-item"><a class="main-navigation__link" href="#0">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div id="cd-cart-trigger" class="shopping-cart">
+			<a class="cd-img-replace shopping-cart__image" href="#">Cart</a>
+			<ul class="count-button shopping-cart__button">
+				<li  class="js_total_no_products shopping-cart__list">0</li>
+                <li class="js_total_no_products shopping-cart__list">0</li>
 			</ul>
 		</div>
 	</header>
 
-	<nav id="main-nav">
-		<ul>
-			<li><a href="#0">Home</a></li>
-			<li><a href="#0">About</a></li>
-			<li><a class="current" href="#0">Services</a></li>
-			<li><a href="#0">Gallery</a></li>
-			<li><a href="#0">Contact</a></li>
-		</ul>
-	</nav>
-
 	<main>
-		<ul id="cd-gallery-items" class="cd-container">
-			<li data-name='iphone cover' data-id='1' data-price='40'  >
-				<img src="img/thumb.jpg" alt="Preview image">
-				<div class="buttons">
-					<button class="js_add_to_cart">Add to cart</button>
-					<button>Read more</button>
+		<ul id="cd-gallery-items" class="cd-container productlist">
+			<li class="productlist__item" data-name='iphone cover' data-id='1' data-price='40'  >
+				<img class="productlist__Itemimage" src="img/thumb.jpg" alt="Preview image">
+				<div class="productlist__Itembuttonlist">
+					<button class="js_add_to_cart productlist__Itembutton">Add to cart</button>
+					<button class="cd-trigger productlist__Itembutton">Read more</button>
 				</div>
 			</li>
 
@@ -115,59 +115,54 @@
 
 	<div id="cd-shadow-layer"></div>
 
-	<div id="cd-cart">
-		<h2>Cart</h2>
-		<ul class="cd-cart-items">
+	<div id="cd-cart" class="cart-nav">
+		<h2 class="cart-nav__title">Cart</h2>
+		<ul class="cd-cart-items cart-nav__list">
 			
 		</ul> <!-- cd-cart-items -->
 
-		<div class="cd-cart-total">
+		<div class="cd-cart-total cart-nav__total">
 			<p>Total <span>$</span><span class="js_total_cart_amount">0</span></p>
 		</div> <!-- cd-cart-total -->
 
-		<a href="#" class="checkout-btn">Checkout</a>
+		<a href="#" class="checkout-btn cart-nav__checkout">Checkout</a>
 		
-		<p class="cd-go-to-cart"><a href="#0">Go to cart page</a></p>
+		<p class="cd-go-to-cart cart-nav__goto-cart"><a href="#0">Go to cart page</a></p>
 	</div> <!-- cd-cart -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/main.js"></script> <!-- Gem jQuery -->
 <script src="dist/sweetalert.min.js"></script>
 <script type="text/javascript">
 
-// var a = '1x'; var b = '$123.3';
-// b = b.replace(/[$,]+/g,"");
-// var c = parseFloat(b) 
-
-// console.log( parseInt( a ) + '---' + c);
 lscache.flush();
 
 $(document).on("click", '.js_add_to_cart', function()
 {
-	cart_items_already_added = $('.cd-cart-items').html();
-	product_name  = $(this).parents('li').attr('data-name');
-	product_price = $(this).parents('li').attr('data-price');
-	product_id    = $(this).parents('li').attr('data-id');
-	console.log( product_id + ':product_id' );
-	product_id_counter = lscache.get( product_id );
-	console.log( product_id_counter + ':product_id_counter' );
-	if( product_id_counter == null )
+	cartItemsAdded = $('.cd-cart-items').html();
+	productName  = $(this).parents('li').attr('data-name');
+	productPrice = $(this).parents('li').attr('data-price');
+	productId    = $(this).parents('li').attr('data-id');
+	console.log( productId + ':productId' );
+	productIdCounter = lscache.get( productId );
+	console.log( productIdCounter + ':productIdCounter' );
+	if( productIdCounter == null )
 	{
-		product_id_counter = 0;	
-		product_id_counter = product_id_counter + 1;
-		new_item = '<li data-id="'+ product_id +'"><span class="cd-qty">1x</span> '+ product_name +'<div class="cd-price">$'+ product_price +'</div><div class="quantity"><label for="cd-product-2">Qty</label><span class="select"><select id="cd-product-2" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div><a href="#" class="js_item_remove cd-item-remove cd-img-replace">Remove</a></li>';
-		$('.cd-cart-items').html( new_item + cart_items_already_added );
-		lscache.set( product_id, product_id_counter );
+		productIdCounter = 0;	
+		productIdCounter = productIdCounter + 1;
+		newItem = '<li class="cart-nav__item" data-id="'+ productId +'"><span class="cd-qty cart-nav__item--quantity">1x</span> '+ productName +'<div class="cd-price cart-nav__price cart-nav__price--text-color">$'+ productPrice +'</div><div class="quantity"><label for="cd-product-2">Qty</label><span class="select"><select id="cd-product-2" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div><a href="#" class="js_item_remove cd-item-remove cart-nav__remove cd-img-replace">Remove</a></li>';
+		$('.cd-cart-items').html( newItem + cartItemsAdded );
+		lscache.set( productId, productIdCounter );
 	}
 	else
 	{
-		product_id_counter = product_id_counter + 1;
-		lscache.set( product_id, product_id_counter );
-		$('.cd-cart-items').html( cart_items_already_added );
-		$('.cd-cart-items').find("li  [data-id=' " + product_id + "']").find('span.cd-qty').html( product_id_counter + 'x' );
+		productIdCounter = productIdCounter + 1;
+		lscache.set( productId, productIdCounter );
+		$('.cd-cart-items').html( cartItemsAdded );
+		$('.cd-cart-items').find("li  [data-id=' " + productId + "']").find('span.cd-qty').html( productIdCounter + 'x' );
 	}
 	
 	reTotal();
-	swal(product_name, "Added to Cart", "success");
+	swal(productName, "Added to Cart", "success");
 	return;
 	
 	
@@ -175,7 +170,7 @@ $(document).on("click", '.js_add_to_cart', function()
 
 $(document).on("click", '.js_item_remove', function()
 {
-	product_id = $(this).parents('li').attr('data-id');
+	productId = $(this).parents('li').attr('data-id');
 	swal({
 	title: "Are you sure?",
 	text: "The product will be deleted from cart",
@@ -189,9 +184,9 @@ $(document).on("click", '.js_item_remove', function()
 	},
 	function(isConfirm){
 	if (isConfirm) {
-		console.log( product_id );
-		$('.cd-cart-items').find("li[data-id='"+ product_id +"']").remove();
-		lscache.set( product_id, null );
+		console.log( productId );
+		$('.cd-cart-items').find("li[data-id='"+ productId +"']").remove();
+		lscache.set( productId, null );
 		reTotal();
 		swal("Deleted!", "Product is deleted from Cart", "success");
 	} else {
@@ -200,34 +195,38 @@ $(document).on("click", '.js_item_remove', function()
 	}
 	});
 
-	// product_id = $(this).parents('li').attr('data-id');
-	// console.log( product_id );
-	// $('.cd-cart-items').find("li[data-id='"+ product_id +"']").remove();
-	// lscache.set( product_id, null );
+	// productId = $(this).parents('li').attr('data-id');
+	// console.log( productId );
+	// $('.cd-cart-items').find("li[data-id='"+ productId +"']").remove();
+	// lscache.set( productId, null );
 	// reTotal();
+});
+
+$(document).on('change','.select',function(){
+	var quant = $('.select option:selected').html();
+	reTotal();
 });
 
 function reTotal()
 {
-	total_price = 0;
+	totalPrice = 0;
 	$('.cd-cart-items').find("li").each(function(index, element) 
 	{
-    	 count_product = $(this).find('span.cd-qty').html();
-		 count_product = parseInt( count_product);
+		 var countProduct = $('.select option:selected').html();
+    	//  countProduct = $(this).find('span.cd-qty').html();
+		//  countProduct = parseInt( countProduct);
 		 
 		 price = $(this).find('.cd-price').html();
 		 price = price.replace(/[$,]+/g,"");
 		 price = parseFloat( price ); 
 
-		 price_of_product = price * count_product;
-		 total_price = total_price + price_of_product;
+		 priceOfProduct = price * countProduct;
+		 totalPrice = totalPrice + priceOfProduct;
 		 
     });
-	$('.js_total_cart_amount').html( total_price );
+	$('.js_total_cart_amount').html( totalPrice );
 	$('.js_total_no_products').html( $('.cd-cart-items li').length  );
 }
-
-
 </script>
 </body>
 </html>

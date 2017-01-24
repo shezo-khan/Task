@@ -1,0 +1,119 @@
+/* -------------------------------- 
+
+xgallery 
+
+-------------------------------- */
+
+main {
+	position: relative;
+	min-height: 100%;
+	background: $background;
+	padding-top: 70px;
+
+	z-index: $main-zindex;
+
+	@include MQ(M) {
+		padding-top: 90px;
+	}
+
+	@include MQ(L) {
+		padding-top: 120px;
+	}
+}
+
+.productlist {
+
+    &__Itemimage{
+        width: 100%;
+        display: block;
+        @include border-radius;
+    }
+
+    &__Itembuttonlist{
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 10px;
+        opacity: 0;
+        transition: 0.5s all;
+    }
+
+    &__Itembutton{
+        font-family: $primary-font;
+        font-size: 1em;
+        background-color: transparent;
+        padding: 12px 30px;
+        border: 2px solid #fff;
+        border-radius: 40px;
+        color:#fff;
+        transition: 0.5s all;
+        &:hover{
+            background-color: white;
+            color:black;
+            box-shadow: 0px 0px 20px rgb(148, 148, 148);
+            cursor: pointer;
+        }
+        &:focus{
+            outline:none;
+        }
+    }
+
+	&__item {
+		position:relative;
+		margin-bottom: 1.5em;
+		position: relative;
+
+		&:hover{
+			.productlist__Itembuttonlist{
+				opacity: 1;
+			}
+		}
+	}
+
+	@include MQ(M) {
+		li {
+			@include column(.48); // see how this mixin works inside partials > _layout.scss
+			margin-bottom: 2em;
+			margin-right: 4%;
+
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
+		}
+	}
+
+	@include MQ(L) {
+		li {
+			@include column(.31);
+			margin-bottom: 2.5em;
+			margin-right: 3.5%;
+
+			&:nth-child(2n) {
+				margin-right: 3.5%;
+			}
+
+			&:nth-child(3n) {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+#cd-shadow-layer {
+	position: fixed;
+	min-height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: $shadow-layer-bg;
+	cursor: pointer;
+
+	z-index: $shadow-zindex;
+
+	display: none;
+
+	&.is-visible {
+		display: block;
+		@include animation(cd-fade-in .3s);
+	}
+}

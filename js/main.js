@@ -9,14 +9,6 @@ jQuery(document).ready(function($){
 		$shadow_layer = $('#cd-shadow-layer');
 		$carbutton = $('.buttons__Addtocart');
 
-
-	//Cart button Click
-	$carbutton.on('click', function(event){
-		event.preventDefault();
-		//close cart panel (if it's open)
-		swal("Good job!", "You clicked the button!", "success");
-	});
-
 	//open lateral menu on mobile
 	$hamburger_icon.on('click', function(event){
 		event.preventDefault();
