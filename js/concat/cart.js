@@ -3,18 +3,17 @@ lscache.flush();
 
 $(document).on("click", '.productlist__Itembutton', function()
 {
-	cartItemsAdded = $('.cart-nav__list').html();
-	productName  = $(this).parents('li').attr('data-name');
-	productPrice = $(this).parents('li').attr('data-price');
-	productId    = $(this).parents('li').attr('data-id');
-
-	productIdCounter = lscache.get( productId );
+	var cartItemsAdded = $('.cart-nav__list').html(),
+		productName  = $(this).parents('li').attr('data-name'),
+		productPrice = $(this).parents('li').attr('data-price'),
+		productId    = $(this).parents('li').attr('data-id'),
+		productIdCounter = lscache.get( productId );
 
 	if( productIdCounter == null )
 	{
 		productIdCounter = 0;	
 		productIdCounter = productIdCounter + 1;
-		newItem = '<li class="cart-nav__item" data-id="'+ productId +'"><span class="cd-qty cart-nav__item--quantity"></span> '+ productName +'<div class="cd-price cart-nav__price cart-nav__price--text-color">NOK '+ productPrice +'</div><div class="quantity"><label for="cd-product-2">Qty</label><span class="select"><select id="cd-product-2" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div><a href="#" class="cart-nav__remove cd-img-replace">Remove</a></li>';
+		newItem = '<li class="cart-nav__item" data-id="'+ productId +'"><span class="cd-qty cart-nav__item--quantity"></span> '+ productName +'<div class="cd-price cart-nav__price cart-nav__price--text-color">NOK '+ productPrice +'</div><div class="quantity"><label for="cd-product-2">Qty</label><span class="select"><select id="cd-product-2" class="select2" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div><a href="#" class="cart-nav__remove cd-img-replace">Remove</a></li>';
 		$('.cart-nav__list').html( newItem + cartItemsAdded );
 		lscache.set( productId, productIdCounter );
 	}
@@ -62,23 +61,22 @@ $(document).on("click", '.cart-nav__remove', function()
 
 });
 
-$(document).on('change','.select',function(){
-	var quant = $('.select option:selected').html();
+$(document).on('change','.select2',function(){
 	reTotal();
 });
 
 function reTotal()
 {
-	totalPrice = 0;
+	var totalPrice = 0;
 	$('.cart-nav__list').find('.cart-nav__item').each(function(index, element) 
 	{
-		 var countProduct = $('.select option:selected').html();
-		 
-		 price = $(this).find('.cart-nav__price').html();
+
+		 var countProduct = $(this).find('.select option:selected').html();
+		 var price = $(this).find('.cart-nav__price').html();
 		 price = price.replace(/[NOK,]+/g,"");
 		 price = parseFloat( price ); 
 
-		 priceOfProduct = price * countProduct;
+		 var priceOfProduct = price * countProduct;
 		 totalPrice = totalPrice + priceOfProduct;
 		 
     });
