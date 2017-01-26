@@ -1,10 +1,11 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    gp_rename = require('gulp-rename');
 
 gulp.task('concat',function(){
-  gulp.src('./js/*.js')
+  gulp.src('./js/concat/**/*.js')
     .pipe(concat('all.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./js'));

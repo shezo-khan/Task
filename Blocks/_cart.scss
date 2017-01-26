@@ -98,7 +98,7 @@
 
 	@include MQ(L) {
 		> * {
-			padding: 0 2em;
+			padding: 1em 2em;
 		}
 
 		.cart-nav__item {
@@ -108,5 +108,6 @@
 		.cart-nav__remove {
 			right: 2em;
 		}
+
 	}
 }
