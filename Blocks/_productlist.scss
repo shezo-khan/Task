@@ -22,6 +22,23 @@ main {
 }
 
 .productlist {
+	&__itemname{
+		font-size: 1.1em;
+		position: absolute;
+		@include center(xy);
+		color: white;
+		text-transform: uppercase;
+		opacity: 0;
+	}
+	&__itemprice{
+		font-size: 1.5em;
+		position: absolute;
+		bottom: 18px;
+		color: white;
+		text-transform: uppercase;
+		left:15%;
+		opacity: 0;
+	}
 
     &__Itemimage{
         width: 100%;
@@ -31,9 +48,8 @@ main {
 
     &__Itembuttonlist{
         position: absolute;
-        width: 100%;
-        text-align: center;
-        bottom: 10px;
+		bottom: 10px;
+		right: 10px;
         opacity: 0;
         transition: 0.5s all;
     }
@@ -41,11 +57,11 @@ main {
     &__Itembutton{
         font-family: $primary-font;
         font-size: 1em;
-        background-color: transparent;
+        //background-color: rgba(255, 255, 255, 0.5);;
         padding: 12px 30px;
         border: 2px solid #fff;
         border-radius: 40px;
-        color:#fff;
+        color:black;
         transition: 0.5s all;
         &:hover{
             background-color: white;
@@ -62,16 +78,34 @@ main {
 		position:relative;
 		margin-bottom: 1.5em;
 		position: relative;
+		transition: all 0.3s;
 
 		&:hover{
 			.productlist__Itembuttonlist{
 				opacity: 1;
 			}
+			box-shadow: 1px 3px 20px 0px;
+			.productlist__itemname{
+				opacity: 1;
+			}
+			.productlist__itemprice{
+				opacity: 1;
+			}
+			&:before{
+				content: '';
+				display: block;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				display: block;
+				background: #000;
+				opacity: 0.7;
+			}
 		}
 	}
 
 	@include MQ(M) {
-		li {
+		.productlist__item {
 			@include column(.48); // see how this mixin works inside partials > _layout.scss
 			margin-bottom: 2em;
 			margin-right: 4%;
@@ -83,7 +117,7 @@ main {
 	}
 
 	@include MQ(L) {
-		li {
+		.productlist__item {
 			@include column(.31);
 			margin-bottom: 2.5em;
 			margin-right: 3.5%;

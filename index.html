@@ -7,108 +7,119 @@
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Gem style -->
+	<link rel="stylesheet" href="css/style.css"> <!--  style -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
-  	<script src="js/lscache.min.js"></script> <!-- Modernizr -->
-	<link rel="stylesheet" href="dist/sweetalert.css">
+  	<script src="js/lscache.min.js"></script> <!-- Lscache -->
+	<link rel="stylesheet" href="dist/sweetalert.css"><!-- sweetalert stylesheet -->
 	<title>Side Cart</title>
 </head>
 <body>
 	<header>
-		<div id="logo">FARO</div>
+		<div id="logo" class="logo">
+			<img class="logo__image" src="img/logo.png" alt="">
+		</div>
 		<div class="main-navigation">
 			<div class="main-navigation__hamburger" id="cd-hamburger-menu"><a class="cd-img-replace main-navigation__ham-image" href="#">Menu</a></div>
 			<nav class="main-navigation__menu" id="main-nav">
 				<ul class="main-navigation__list">
-					<li class="main-navigation__list-item"><a class="main-navigation__link" href="#0">Home</a></li>
-					<li class="main-navigation__list-item"><a class="main-navigation__link" href="#0">About</a></li>
-					<li class="main-navigation__list-item"><a class="main-navigation__link main-navigation__link--current" href="#0">Services</a></li>
-					<li class="main-navigation__list-item"><a class="main-navigation__link" href="#0">Gallery</a></li>
-					<li class="main-navigation__list-item"><a class="main-navigation__link" href="#0">Contact</a></li>
+					<li class="main-navigation__list-item"><a class="main-navigation__link" href="#0">HJEM</a></li>
+					<li class="main-navigation__list-item"><a class="main-navigation__link" href="#0">OM OSS</a></li>
+					<li class="main-navigation__list-item"><a class="main-navigation__link main-navigation__link--current" href="#0">PRODUKTER</a></li>
+					<li class="main-navigation__list-item"><a class="main-navigation__link" href="#0">TJNESTER</a></li>
+					<li class="main-navigation__list-item"><a class="main-navigation__link" href="#0">KONTAKT</a></li>
 				</ul>
 			</nav>
 		</div>
 		<div id="cd-cart-trigger" class="shopping-cart">
 			<a class="cd-img-replace shopping-cart__image" href="#">Cart</a>
-			<ul class="count-button shopping-cart__button">
-				<li  class="js_total_no_products shopping-cart__list">0</li>
-                <li class="js_total_no_products shopping-cart__list">0</li>
+			<ul class="count-button shopping-cart__counter">
+				<li  class="js_total_no_products shopping-cart__number">0</li>
+                <li class="js_total_no_products shopping-cart__number">0</li>
 			</ul>
 		</div>
 	</header>
 
 	<main>
-		<ul id="cd-gallery-items" class="cd-container productlist">
-			<li class="productlist__item" data-name='iphone cover' data-id='1' data-price='40'  >
-				<img class="productlist__Itemimage" src="img/thumb.jpg" alt="Preview image">
+		<ul id="cd-gallery-items" class="main-container productlist">
+			<li class="productlist__item" data-name='Vannkoker' data-id='1' data-price='99'  >
+				<img class="productlist__Itemimage" src="img/waterboiler.jpg" alt="Preview image">
 				<div class="productlist__Itembuttonlist">
 					<button class="js_add_to_cart productlist__Itembutton">Add to cart</button>
-					<button class="cd-trigger productlist__Itembutton">Read more</button>
 				</div>
+				<h1 class="productlist__itemname">Vannkoker</h1>
+				<h3 class="productlist__itemprice">99 KR</h3>
 			</li>
 
-			<li class="productlist__item" data-name='iphone cover' data-id='1' data-price='40'  >
-				<img class="productlist__Itemimage" src="img/thumb.jpg" alt="Preview image">
+			<li class="productlist__item" data-name='Coline blender' data-id='2' data-price='599'  >
+				<img class="productlist__Itemimage" src="img/blender.jpg" alt="Preview image">
 				<div class="productlist__Itembuttonlist">
 					<button class="js_add_to_cart productlist__Itembutton">Add to cart</button>
-					<button class="cd-trigger productlist__Itembutton">Read more</button>
 				</div>
+				<h1 class="productlist__itemname">Coline blender</h1>
+				<h3 class="productlist__itemprice">599 KR</h3>
 			</li>
 
-			<li class="productlist__item" data-name='iphone cover' data-id='1' data-price='40'  >
-				<img class="productlist__Itemimage" src="img/thumb.jpg" alt="Preview image">
+			<li class="productlist__item" data-name='Coline sitruspresse' data-id='3' data-price='99'  >
+				<img class="productlist__Itemimage" src="img/orangejuicer.jpg" alt="Preview image">
 				<div class="productlist__Itembuttonlist">
 					<button class="js_add_to_cart productlist__Itembutton">Add to cart</button>
-					<button class="cd-trigger productlist__Itembutton">Read more</button>
 				</div>
+				<h1 class="productlist__itemname">Coline sitruspresse</h1>
+				<h3 class="productlist__itemprice">99 KR</h3>
 			</li>
 
-			<li class="productlist__item" data-name='iphone cover' data-id='1' data-price='40'  >
-				<img class="productlist__Itemimage" src="img/thumb.jpg" alt="Preview image">
+			<li class="productlist__item" data-name='Induksjonsplate' data-id='4' data-price='499'  >
+				<img class="productlist__Itemimage" src="img/induction.jpg" alt="Preview image">
 				<div class="productlist__Itembuttonlist">
 					<button class="js_add_to_cart productlist__Itembutton">Add to cart</button>
-					<button class="cd-trigger productlist__Itembutton">Read more</button>
 				</div>
+				<h1 class="productlist__itemname">Induksjonsplate</h1>
+				<h3 class="productlist__itemprice">499 KR</h3>
 			</li>
 
-			<li class="productlist__item" data-name='iphone cover' data-id='1' data-price='40'  >
-				<img class="productlist__Itemimage" src="img/thumb.jpg" alt="Preview image">
+			<li class="productlist__item" data-name='Kaffetrakter' data-id='5' data-price='99'  >
+				<img class="productlist__Itemimage" src="img/cafemachine.jpg" alt="Preview image">
 				<div class="productlist__Itembuttonlist">
 					<button class="js_add_to_cart productlist__Itembutton">Add to cart</button>
-					<button class="cd-trigger productlist__Itembutton">Read more</button>
 				</div>
+				<h1 class="productlist__itemname">Kaffetrakter</h1>
+				<h3 class="productlist__itemprice">99 KR</h3>
 			</li>
 
-			<li class="productlist__item" data-name='iphone cover' data-id='1' data-price='40'  >
-				<img class="productlist__Itemimage" src="img/thumb.jpg" alt="Preview image">
+			<li class="productlist__item" data-name='Riskoker' data-id='6' data-price='299'  >
+				<img class="productlist__Itemimage" src="img/ricecooker.jpg" alt="Preview image">
 				<div class="productlist__Itembuttonlist">
 					<button class="js_add_to_cart productlist__Itembutton">Add to cart</button>
-					<button class="cd-trigger productlist__Itembutton">Read more</button>
 				</div>
+				<h1 class="productlist__itemname">Riskoker</h1>
+				<h3 class="productlist__itemprice">99 KR</h3>
 			</li>
 
-			<li class="productlist__item" data-name='iphone cover' data-id='1' data-price='40'  >
-				<img class="productlist__Itemimage" src="img/thumb.jpg" alt="Preview image">
+			<li class="productlist__item" data-name='Vaffeljern' data-id='7' data-price='399'  >
+				<img class="productlist__Itemimage" src="img/vaffel.jpg" alt="Preview image">
 				<div class="productlist__Itembuttonlist">
 					<button class="js_add_to_cart productlist__Itembutton">Add to cart</button>
-					<button class="cd-trigger productlist__Itembutton">Read more</button>
 				</div>
+				<h1 class="productlist__itemname">Vaffeljern</h1>
+				<h3 class="productlist__itemprice">399 KR</h3>
 			</li>
 
-			<li class="productlist__item" data-name='iphone cover' data-id='1' data-price='40'  >
-				<img class="productlist__Itemimage" src="img/thumb.jpg" alt="Preview image">
+			<li class="productlist__item" data-name='Brødrister' data-id='8' data-price='299'  >
+				<img class="productlist__Itemimage" src="img/breadroaster.jpg" alt="Preview image">
 				<div class="productlist__Itembuttonlist">
 					<button class="js_add_to_cart productlist__Itembutton">Add to cart</button>
-					<button class="cd-trigger productlist__Itembutton">Read more</button>
 				</div>
+				<h1 class="productlist__itemname">Brødrister</h1>
+				<h3 class="productlist__itemprice">299 KR</h3>
 			</li>
 
-			<li class="productlist__item" data-name='iphone cover' data-id='1' data-price='40'  >
-				<img class="productlist__Itemimage" src="img/thumb.jpg" alt="Preview image">
+			<li class="productlist__item" data-name='Eggkoker' data-id='9' data-price='199'  >
+				<img class="productlist__Itemimage" src="img/eggcooker.jpg" alt="Preview image">
 				<div class="productlist__Itembuttonlist">
 					<button class="js_add_to_cart productlist__Itembutton">Add to cart</button>
-					<button class="cd-trigger productlist__Itembutton">Read more</button>
 				</div>
+				<h1 class="productlist__itemname">Eggkoker</h1>
+				<h3 class="productlist__itemprice">199 KR</h3>
 			</li>
 		</ul> <!-- cd-gallery-items -->
 	</main>
@@ -121,112 +132,17 @@
 			
 		</ul> <!-- cd-cart-items -->
 
-		<div class="cd-cart-total cart-nav__total">
-			<p>Total <span>$</span><span class="js_total_cart_amount">0</span></p>
+		<div class="cart-nav__total">
+			<p>Total <span class="js_total_cart_amount">0</span><span> KR </span></p>
 		</div> <!-- cd-cart-total -->
 
 		<a href="#" class="checkout-btn cart-nav__checkout">Checkout</a>
 		
 		<p class="cd-go-to-cart cart-nav__goto-cart"><a href="#0">Go to cart page</a></p>
 	</div> <!-- cd-cart -->
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/main.js"></script> <!-- Gem jQuery -->
 <script src="dist/sweetalert.min.js"></script>
-<script type="text/javascript">
-
-lscache.flush();
-
-$(document).on("click", '.js_add_to_cart', function()
-{
-	cartItemsAdded = $('.cd-cart-items').html();
-	productName  = $(this).parents('li').attr('data-name');
-	productPrice = $(this).parents('li').attr('data-price');
-	productId    = $(this).parents('li').attr('data-id');
-	console.log( productId + ':productId' );
-	productIdCounter = lscache.get( productId );
-	console.log( productIdCounter + ':productIdCounter' );
-	if( productIdCounter == null )
-	{
-		productIdCounter = 0;	
-		productIdCounter = productIdCounter + 1;
-		newItem = '<li class="cart-nav__item" data-id="'+ productId +'"><span class="cd-qty cart-nav__item--quantity">1x</span> '+ productName +'<div class="cd-price cart-nav__price cart-nav__price--text-color">$'+ productPrice +'</div><div class="quantity"><label for="cd-product-2">Qty</label><span class="select"><select id="cd-product-2" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div><a href="#" class="js_item_remove cd-item-remove cart-nav__remove cd-img-replace">Remove</a></li>';
-		$('.cd-cart-items').html( newItem + cartItemsAdded );
-		lscache.set( productId, productIdCounter );
-	}
-	else
-	{
-		productIdCounter = productIdCounter + 1;
-		lscache.set( productId, productIdCounter );
-		$('.cd-cart-items').html( cartItemsAdded );
-		$('.cd-cart-items').find("li  [data-id=' " + productId + "']").find('span.cd-qty').html( productIdCounter + 'x' );
-	}
-	
-	reTotal();
-	swal(productName, "Added to Cart", "success");
-	return;
-	
-	
-});
-
-$(document).on("click", '.js_item_remove', function()
-{
-	productId = $(this).parents('li').attr('data-id');
-	swal({
-	title: "Are you sure?",
-	text: "The product will be deleted from cart",
-	type: "warning",
-	showCancelButton: true,
-	confirmButtonColor: "#DD6B55",
-	confirmButtonText: "Yes, delete it!",
-	cancelButtonText: "No",
-	closeOnConfirm: false,
-	closeOnCancel: false
-	},
-	function(isConfirm){
-	if (isConfirm) {
-		console.log( productId );
-		$('.cd-cart-items').find("li[data-id='"+ productId +"']").remove();
-		lscache.set( productId, null );
-		reTotal();
-		swal("Deleted!", "Product is deleted from Cart", "success");
-	} else {
-		swal("Cancelled", "", "error");
-		return;
-	}
-	});
-
-	// productId = $(this).parents('li').attr('data-id');
-	// console.log( productId );
-	// $('.cd-cart-items').find("li[data-id='"+ productId +"']").remove();
-	// lscache.set( productId, null );
-	// reTotal();
-});
-
-$(document).on('change','.select',function(){
-	var quant = $('.select option:selected').html();
-	reTotal();
-});
-
-function reTotal()
-{
-	totalPrice = 0;
-	$('.cd-cart-items').find("li").each(function(index, element) 
-	{
-		 var countProduct = $('.select option:selected').html();
-    	//  countProduct = $(this).find('span.cd-qty').html();
-		//  countProduct = parseInt( countProduct);
-		 
-		 price = $(this).find('.cd-price').html();
-		 price = price.replace(/[$,]+/g,"");
-		 price = parseFloat( price ); 
-
-		 priceOfProduct = price * countProduct;
-		 totalPrice = totalPrice + priceOfProduct;
-		 
-    });
-	$('.js_total_cart_amount').html( totalPrice );
-	$('.js_total_no_products').html( $('.cd-cart-items li').length  );
-}
-</script>
+<script src="js/all.min.js"></script>
 </body>
 </html>

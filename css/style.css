@@ -6,7 +6,7 @@ xgallery
 main {
   position: relative;
   min-height: 100%;
-  background: #eeeff7;
+  background: #fff;
   padding-top: 70px;
   z-index: 1; }
   @media only screen and (min-width: 768px) {
@@ -16,6 +16,31 @@ main {
     main {
       padding-top: 120px; } }
 
+.productlist__itemname {
+  font-size: 1.1em;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+  text-transform: uppercase;
+  opacity: 0; }
+
+.productlist__itemprice {
+  font-size: 1.5em;
+  position: absolute;
+  bottom: 18px;
+  color: white;
+  text-transform: uppercase;
+  left: 15%;
+  opacity: 0; }
+
 .productlist__Itemimage {
   width: 100%;
   display: block;
@@ -23,20 +48,18 @@ main {
 
 .productlist__Itembuttonlist {
   position: absolute;
-  width: 100%;
-  text-align: center;
   bottom: 10px;
+  right: 10px;
   opacity: 0;
   transition: 0.5s all; }
 
 .productlist__Itembutton {
   font-family: "PT Sans", sans-serif;
   font-size: 1em;
-  background-color: transparent;
   padding: 12px 30px;
   border: 2px solid #fff;
   border-radius: 40px;
-  color: #fff;
+  color: black;
   transition: 0.5s all; }
   .productlist__Itembutton:hover {
     background-color: white;
@@ -49,28 +72,44 @@ main {
 .productlist__item {
   position: relative;
   margin-bottom: 1.5em;
-  position: relative; }
-  .productlist__item:hover .productlist__Itembuttonlist {
-    opacity: 1; }
+  position: relative;
+  transition: all 0.3s; }
+  .productlist__item:hover {
+    box-shadow: 1px 3px 20px 0px; }
+    .productlist__item:hover .productlist__Itembuttonlist {
+      opacity: 1; }
+    .productlist__item:hover .productlist__itemname {
+      opacity: 1; }
+    .productlist__item:hover .productlist__itemprice {
+      opacity: 1; }
+    .productlist__item:hover:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: #000;
+      opacity: 0.7; }
 
 @media only screen and (min-width: 768px) {
-  .productlist li {
+  .productlist .productlist__item {
     width: 48%;
     float: left;
     margin-bottom: 2em;
     margin-right: 4%; }
-    .productlist li:nth-child(2n) {
+    .productlist .productlist__item:nth-child(2n) {
       margin-right: 0; } }
 
 @media only screen and (min-width: 1200px) {
-  .productlist li {
+  .productlist .productlist__item {
     width: 31%;
     float: left;
     margin-bottom: 2.5em;
     margin-right: 3.5%; }
-    .productlist li:nth-child(2n) {
+    .productlist .productlist__item:nth-child(2n) {
       margin-right: 3.5%; }
-    .productlist li:nth-child(3n) {
+    .productlist .productlist__item:nth-child(3n) {
       margin-right: 0; } }
 
 #cd-shadow-layer {
@@ -108,7 +147,7 @@ header {
     header {
       height: 80px; } }
 
-#logo {
+.logo {
   padding-top: 5px;
   /* delete this property if you don't want your logo to scale down on mobile devices */
   -webkit-transform: scale(0.8);
@@ -116,8 +155,10 @@ header {
   -ms-transform: scale(0.8);
   -o-transform: scale(0.8);
   transform: scale(0.8); }
+  .logo__image {
+    display: none; }
   @media only screen and (min-width: 1200px) {
-    #logo {
+    .logo {
       padding-top: 20px;
       position: absolute;
       /* logo left margin on Dekstop */
@@ -127,7 +168,10 @@ header {
       -moz-transform: scale(1);
       -ms-transform: scale(1);
       -o-transform: scale(1);
-      transform: scale(1); } }
+      transform: scale(1); }
+      .logo__image {
+        display: block;
+        width: 50%; } }
 
 .shopping-cart {
   position: absolute;
@@ -138,7 +182,7 @@ header {
     background: #26292f url("../img/cd-cart.svg") no-repeat center center;
     width: 60px;
     height: 100%; }
-  .shopping-cart__button {
+  .shopping-cart__counter {
     position: absolute;
     top: 9px;
     right: 25px;
@@ -155,13 +199,13 @@ header {
     transition: transform .2s .5s;
     transition: transform .2s .5s, -webkit-transform .2s .5s; }
     @media only screen and (max-width: 1200px) {
-      .shopping-cart__button {
+      .shopping-cart__counter {
         top: 2px;
         right: 5px; } }
-  .shopping-cart__list {
+  .shopping-cart__number {
     margin-top: 2px;
     font-size: 0.7em; }
-    .shopping-cart__list:last-of-type {
+    .shopping-cart__number:last-of-type {
       visibility: hidden; }
   @media only screen and (min-width: 1200px) {
     .shopping-cart {
@@ -198,13 +242,14 @@ header {
   position: absolute;
   top: 0;
   height: 100%; }
-  .main-navigation__hamburger .main-navigation__ham-image {
-    background: #26292f url("../img/cd-hamburger-menu.svg") no-repeat center center;
-    width: 60px;
-    height: 100%; }
   @media only screen and (min-width: 1200px) {
     .main-navigation__hamburger {
       display: none; } }
+
+.main-navigation__ham-image {
+  background: #26292f url("../img/cd-hamburger-menu.svg") no-repeat center center;
+  width: 60px;
+  height: 100%; }
 
 .main-navigation__link {
   display: block;
@@ -216,12 +261,6 @@ header {
     box-shadow: inset 3px 0 #435779; }
 
 .main-navigation__menu {
-  /* header height */
-  padding-top: 50px;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  z-index: 3;
   left: -100%;
   background: #FFF;
   -webkit-transition: left 0.3s;
@@ -365,7 +404,7 @@ body {
   font-size: 100%;
   font-family: "PT Sans", sans-serif;
   color: #31353d;
-  background-color: #eeeff7; }
+  background-color: #fff; }
   body.overflow-hidden {
     /* prevent 2 vertical scrollbars on ie and firefox when the cart is visible */
     overflow: hidden; }
@@ -382,13 +421,13 @@ img {
 Modules - reusable parts of our design
 
 -------------------------------- */
-.cd-container {
+.main-container {
   /* this class is used to horizontally align the gallery of items */
   position: relative;
   width: 90%;
   max-width: 1200px;
   margin: 0 auto; }
-  .cd-container::after {
+  .main-container::after {
     /* clearfix */
     content: '';
     display: table;

@@ -6,11 +6,11 @@
 
 @import '../partials/layout'; // responsive grid and media queries
 
-@import '../Blocks/productlist';
+@import '../Blocks/productlist'; //Product list stylings
 
-@import '../Blocks/header';
+@import '../Blocks/header'; //Header Stylings
 
-@import '../Blocks/cart';
+@import '../Blocks/cart'; //Cart stylings
 
 /* -------------------------------- 
 
@@ -52,7 +52,7 @@ Modules - reusable parts of our design
 
 -------------------------------- */
 
-.cd-container { /* this class is used to horizontally align the gallery of items */
+.main-container { /* this class is used to horizontally align the gallery of items */
 	position: relative;
 	width: 90%;
 	max-width: $L; // breakpoints inside partials > _layout.scss

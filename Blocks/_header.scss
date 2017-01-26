@@ -21,13 +21,19 @@ header {
 	}
 }
 
-#logo {
+.logo {
 	padding-top: 5px;
-
+    &__image{
+        display: none;
+    }
 	/* delete this property if you don't want your logo to scale down on mobile devices */
 	@include transform(scale(.8)); 
 
 	@include MQ(L) {
+        &__image{
+            display: block;
+            width: 50%;
+        }
 		padding-top: 20px;
 		position: absolute;
 		/* logo left margin on Dekstop */
@@ -49,7 +55,7 @@ header {
             height: 100%;
 
         }
-        &__button{
+        &__counter{
             position: absolute;
             top: 9px;
             right: 25px;
@@ -70,7 +76,7 @@ header {
                 right:5px;
             }
 		}
-        &__list{
+        &__number{
             margin-top: 2px;
             font-size: 0.7em;
             &:last-of-type {
@@ -121,18 +127,16 @@ header {
         position: absolute;
         top: 0;
         height: 100%;
-        .main-navigation__ham-image {
-            background: darken($header-bg, 5%) url('../img/cd-hamburger-menu.svg') no-repeat center center;
-            width: 60px;
-            height: 100%;
-        }
-
         @include MQ(L) {
             display: none;
         }
     }
+    &__ham-image {
+        background: darken($header-bg, 5%) url('../img/cd-hamburger-menu.svg') no-repeat center center;
+        width: 60px;
+        height: 100%;
+    }
     &__link {
-        // @extend .nav-adjustments;
         display: block;
         height: 50px;
         line-height: 50px;
@@ -145,12 +149,6 @@ header {
 
     &__menu {
         @extend .nav-adjustments;
-        /* header height */
-        padding-top: 50px; 
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        box-shadow: 0 0 20px rgba(#000, .2);
-        z-index: $sidebar-zindex;
         left: -100%;
         background: #FFF;
   
